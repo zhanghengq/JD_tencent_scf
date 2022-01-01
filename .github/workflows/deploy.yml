@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     if: github.event.repository.owner.id == github.event.sender.id
-    env:
-      SCF_NT: ${{ secrets.SCF_NT }}
+#     env:
+#       SCF_NT: ${{ secrets.SCF_NT }}
     steps:
       - uses: actions/checkout@v2
         with:
