@@ -662,7 +662,7 @@ function userInfo() {
                 // ***************************
                 // 报告运行次数
                 if (ZLC) {
-                  for (let k = 0; k < 5; k++) {
+                  for (let k = 0; k < 3; k++) {
                     try {
                       await runTimes()
                       break
@@ -741,7 +741,8 @@ function userInfo() {
 function runTimes() {
   return new Promise((resolve, reject) => {
     $.get({
-      url: `https://api.jdsharecode.xyz/api/runTimes?activityId=jxfactory&sharecode=${$.encryptPin}`
+      url: `https://api.jdsharecode.xyz/api/runTimes?activityId=jxfactory&sharecode=${$.encryptPin}`,
+      timeout: 5000
     }, (err, resp, data) => {
       if (err) {
         console.log('上报失败', err)

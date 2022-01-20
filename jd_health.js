@@ -156,7 +156,7 @@ function getTaskDetail(taskId = '') {
                 if (ZLC) {
                   if (oc(() => data.data.result.taskVos[0].assistTaskDetailVo.taskToken)) {
                     $.code = data.data.result.taskVos[0].assistTaskDetailVo.taskToken
-                    for (let k = 0; k < 5; k++) {
+                    for (let k = 0; k < 3; k++) {
                       try {
                         await runTimes()
                         break
@@ -219,7 +219,8 @@ function getTaskDetail(taskId = '') {
 function runTimes() {
   return new Promise((resolve, reject) => {
     $.get({
-      url: `https://api.jdsharecode.xyz/api/runTimes?activityId=health&sharecode=${$.code}`
+      url: `https://api.jdsharecode.xyz/api/runTimes?activityId=health&sharecode=${$.code}`,
+      timeout: 5000
     }, (err, resp, data) => {
       if (err) {
         console.log('上报失败', err)

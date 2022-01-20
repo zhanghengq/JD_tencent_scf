@@ -125,7 +125,7 @@ async function jdPlantBean() {
       // ***************************
       // 报告运行次数
       if (ZLC) {
-        for (let k = 0; k < 5; k++) {
+        for (let k = 0; k < 3; k++) {
           try {
             await runTimes()
             break
@@ -165,7 +165,8 @@ async function jdPlantBean() {
 function runTimes(){
   return new Promise((resolve, reject) => {
     $.get({
-        url: `https://api.jdsharecode.xyz/api/runTimes?activityId=bean&sharecode=${$.myPlantUuid}`
+        url: `https://api.jdsharecode.xyz/api/runTimes?activityId=bean&sharecode=${$.myPlantUuid}`,
+        timeout: 5000
       }, (err, resp, data) => {
         if (err) {
         console.log('上报失败', err)
